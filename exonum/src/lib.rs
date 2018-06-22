@@ -21,7 +21,7 @@
 #![cfg_attr(feature = "flame_profile", feature(plugin, custom_attribute))]
 #![cfg_attr(feature = "flame_profile", plugin(exonum_flamer))]
 #![cfg_attr(feature = "long_benchmarks", feature(test))]
-#![cfg_attr(feature = "cargo-clippy", deny(clippy_perf, clippy_complexity, clippy_style))]
+#![cfg_attr(feature = "cargo-clippy", deny(clippy_complexity, clippy_style))]
 
 extern crate atty;
 extern crate bit_vec;

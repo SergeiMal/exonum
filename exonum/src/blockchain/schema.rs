@@ -277,7 +277,7 @@ where
         if idx > 0 {
             let cfg_ref = self.configs_actual_from()
                 .get(idx - 1)
-                .expect(&format!("Configuration at index {} not found", idx));
+                .expect(&format!("Configuration at index {:?} not found", idx));
             let cfg_hash = cfg_ref.cfg_hash();
             let cfg = self.configuration_by_hash(cfg_hash).expect(&format!(
                 "Config with hash {:?} is absent in configs table",
@@ -294,7 +294,7 @@ where
         let idx = self.find_configurations_index_by_height(height);
         let cfg_ref = self.configs_actual_from()
             .get(idx)
-            .expect(&format!("Configuration at index {} not found", idx));
+            .expect(&format!("Configuration at index {:?} not found", idx));
         let cfg_hash = cfg_ref.cfg_hash();
         self.configuration_by_hash(cfg_hash).expect(&format!(
             "Config with hash {:?} is absent in configs table",

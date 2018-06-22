@@ -315,7 +315,7 @@ impl<T> Index<usize> for BlockWithTransactions<T> {
 
     fn index(&self, index: usize) -> &CommittedTransaction<T> {
         self.transactions.get(index).expect(&format!(
-            "Index exceeds number of transactions in block {}",
+            "Index exceeds number of transactions in block {:?}",
             self.len()
         ))
     }

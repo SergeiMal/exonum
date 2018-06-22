@@ -78,12 +78,12 @@ impl Command for Info {
     ) -> Feedback {
         let request = context
             .arg::<String>(INFO_REQUEST)
-            .expect(&format!("{} not found.", INFO_REQUEST));
+            .expect(&format!("{:?} not found.", INFO_REQUEST));
 
         match request.as_ref() {
             "core-version" => Self::core_version(),
             "list-services" => self.list_services(),
-            _ => println!("Unsupported information request: {}", request),
+            _ => println!("Unsupported information request: {:?}", request),
         }
 
         Feedback::None

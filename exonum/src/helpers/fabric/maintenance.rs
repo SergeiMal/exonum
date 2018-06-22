@@ -41,13 +41,13 @@ pub struct Maintenance;
 impl Maintenance {
     fn node_config(ctx: &Context) -> NodeConfig {
         let path = ctx.arg::<String>(NODE_CONFIG_PATH)
-            .expect(&format!("{} not found.", NODE_CONFIG_PATH));
+            .expect(&format!("{:?} not found.", NODE_CONFIG_PATH));
         ConfigFile::load(path).expect("Can't load node config file")
     }
 
     fn database(ctx: &Context, options: &DbOptions) -> Box<Database> {
         let path = ctx.arg::<String>(DATABASE_PATH)
-            .expect(&format!("{} not found.", DATABASE_PATH));
+            .expect(&format!("{:?} not found.", DATABASE_PATH));
         Box::new(RocksDB::open(Path::new(&path), options).expect("Can't load database file"))
     }
 
@@ -113,11 +113,11 @@ impl Command for Maintenance {
     ) -> Feedback {
         let action = context
             .arg::<String>(MAINTENANCE_ACTION_PATH)
-            .expect(&format!("{} not found.", MAINTENANCE_ACTION_PATH));
+            .expect(&format!("{:?} not found.", MAINTENANCE_ACTION_PATH));
 
         match action.as_ref() {
             "clear-cache" => Self::clear_cache(&context),
-            _ => println!("Unsupported maintenance action: {}", action),
+            _ => println!("Unsupported maintenance action: {:?}", action),
         }
 
         Feedback::None

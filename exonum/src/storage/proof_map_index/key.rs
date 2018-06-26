@@ -587,7 +587,7 @@ fn test_proof_path_storage_key_leaf() {
 
 #[test]
 fn test_proof_path_storage_key_branch() {
-    let mut key = ProofPath::new(&[255u8; 32]);
+    let mut key = ProofPath::new(&[255_u8; 32]);
     key = key.prefix(11);
     key = key.suffix(5);
 

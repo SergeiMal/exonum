@@ -730,7 +730,10 @@ mod tests {
             Vec::<(u64, u8)>::new()
         );
 
-        assert_eq!(list_index.indices().collect::<Vec<u64>>(), vec![0_u64, 3, 4]);
+        assert_eq!(
+            list_index.indices().collect::<Vec<u64>>(),
+            vec![0_u64, 3, 4]
+        );
         assert_eq!(list_index.values().collect::<Vec<u8>>(), vec![1_u8, 2, 3]);
     }
 
